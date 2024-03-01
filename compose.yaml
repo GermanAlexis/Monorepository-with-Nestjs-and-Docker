@@ -1,0 +1,29 @@
+version: "3"
+
+networks:
+  microservice-network:
+      driver: bridge
+
+services:
+  first-app:
+    container_name: microservice-app
+    networks:
+      - microservice-network
+    build:
+      context: .
+      args:
+        - APP=microservice-app
+    restart: always
+    ports:
+      - 3000:3000
+  second-app:
+    container_name: request
+    networks:
+      - microservice-network
+    build:
+      context: .
+      args:
+        - APP=request
+    restart: always
+    ports:
+      - 3000:3001
