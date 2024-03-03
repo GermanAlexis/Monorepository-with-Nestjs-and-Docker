@@ -15,7 +15,7 @@ services:
         - APP=microservice-app
     restart: always
     ports:
-      - 3000:3000
+      - 3002:3002
   second-app:
     container_name: request
     networks:
@@ -26,4 +26,4 @@ services:
         - APP=request
     restart: always
     ports:
-      - 3000:3001
+      - 3001:3001
